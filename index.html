@@ -7,121 +7,151 @@
     <meta name="referrer" content="no-referrer">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #0b132b;
+            background: radial-gradient(circle at top, #1c2541 0%, #0b132b 100%);
             color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
         }
-        .header-container {
-            text-align: center;
-            max-width: 600px;
+
+        .landing-card {
+            max-width: 550px;
             width: 100%;
-            background: #1c2541;
-            padding: 25px 20px;
-            border-radius: 12px 12px 0 0;
-            border: 1px solid #2a3a5c;
-            border-bottom: none;
-        }
-        .logo-container {
-            width: 100%;
-            max-width: 240px;
-            margin: 0 auto 15px auto;
-            display: flex;
-            justify-content: center;
-        }
-        .logo-container img { width: 100%; height: auto; display: block; object-fit: contain; }
-        .divider { height: 2px; width: 50px; background-color: #5bc0be; margin: 15px auto; }
-        
-        .display-window {
-            max-width: 600px;
-            width: 100%;
-            background: #111a36;
-            border-radius: 0 0 12px 12px;
-            border: 1px solid #2a3a5c;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .rules-gate {
-            width: 100%;
+            background: rgba(28, 37, 65, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
             padding: 40px 30px;
-        }
-        .rules-gate h2 {
-            font-size: 1.3rem;
-            color: #5bc0be;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
             text-align: center;
         }
-        .rules-list {
-            list-style: none;
-            margin-bottom: 35px;
+
+        .logo-box {
+            width: 100%;
+            max-width: 220px;
+            margin: 0 auto 25px auto;
         }
-        .rules-list li {
+        
+        .logo-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
+        .welcome-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6fffe9 0%, #5bc0be 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
             font-size: 1.05rem;
             color: #c5d3e8;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .divider {
+            height: 1px;
+            width: 100%;
+            background: linear-gradient(90deg, rgba(91, 192, 190, 0) 0%, rgba(91, 192, 190, 0.4) 50%, rgba(91, 192, 190, 0) 100%);
+            margin-bottom: 30px;
+        }
+
+        .rules-container {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .rules-list {
+            list-style: none;
+        }
+
+        .rules-list li {
+            font-size: 1rem;
+            color: #e2eafc;
             margin-bottom: 18px;
-            line-height: 1.5;
+            line-height: 1.6;
             display: flex;
             align-items: flex-start;
         }
+
         .rules-list li::before {
-            content: "•";
-            color: #5bc0be;
-            font-weight: bold;
-            font-size: 1.3rem;
-            margin-right: 12px;
+            content: "✦";
+            color: #6fffe9;
+            font-size: 1.1rem;
+            margin-right: 14px;
             line-height: 1;
+            margin-top: 2px;
         }
-        .agree-btn {
+
+        .enter-btn {
             display: block;
             width: 100%;
-            padding: 18px 20px;
-            background-color: #5bc0be;
+            padding: 20px 24px;
+            background: linear-gradient(135deg, #5bc0be 0%, #3aafa9 100%);
             color: #0b132b;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.25rem;
+            font-weight: 700;
             text-align: center;
             text-decoration: none;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(91, 192, 190, 0.2);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            border-radius: 14px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 8px 25px rgba(91, 192, 190, 0.25);
+            transition: all 0.3s ease;
         }
-        .agree-btn:hover { background-color: #6fffe9; }
+
+        .enter-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #6fffe9 0%, #5bc0be 100%);
+            box-shadow: 0 12px 30px rgba(111, 255, 233, 0.4);
+        }
+
+        .enter-btn:active {
+            transform: translateY(1px);
+        }
     </style>
 </head>
 <body>
 
-    <div class="header-container">
-        <div class="logo-container">
+    <div class="landing-card">
+        <!-- Logo Header -->
+        <div class="logo-box">
             <img src="logo.png" alt="Fishers Of Men Prayer Network Logo">
         </div>
-    </div>
 
-    <div class="display-window">
-        <div class="rules-gate">
-            <h2>Community Expectations</h2>
-            <div class="divider"></div>
-            
+        <!-- Welcome Text Header -->
+        <h1 class="welcome-title">Welcome! A great big welcome!</h1>
+        <p class="subtitle">Here at Fishers of Men Prayer Network we:</p>
+        
+        <div class="divider"></div>
+
+        <!-- Complete Combined Expectations List -->
+        <div class="rules-container">
             <ul class="rules-list">
+                <li>Require all Members to have a profile picture/logo and a name.</li>
+                <li>Require all Visitors to provide their names (Profile Picture is completely optional).</li>
                 <li>Respect one another at all times within the prayer space.</li>
                 <li>Keep your microphone and camera turned off upon entry unless explicitly instructed otherwise by the leader.</li>
                 <li>Maintain a quiet, distraction-free environment while your audio line is active.</li>
                 <li>This platform is dedicated strictly to prayer, intercession, and fellowship.</li>
             </ul>
-
-            <!-- Button URL updated to force a name prompt and pin clean text labels to avatars -->
-            <a class="agree-btn" href="https://vdo.ninja/?room=FishersOfMen24HRS&pw=0&conference&autorun&mute&videomute&username=1&labelstyle=1" target="_blank" rel="noreferrer noopener">🙏 I Agree & Enter Altar</a>
         </div>
+
+        <!-- Verified Live Room Link -->
+        <a class="enter-btn" href="https://vdo.ninja/?room=FishersOfMen24HRS&pw=0&conference&mute&videomute&label&avatar&showlabels" target="_blank" rel="noreferrer noopener">🙏 AGREE & ENTER ALTAR</a>
     </div>
 
 </body>
