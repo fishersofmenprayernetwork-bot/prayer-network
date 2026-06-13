@@ -38,11 +38,11 @@
         .logo-container img { width: 100%; height: auto; display: block; object-fit: contain; }
         .divider { height: 2px; width: 50px; background-color: #5bc0be; margin: 15px auto; }
         
-        /* The Dynamic Content Window */
+        /* Fixed Display Window constraints for proper iFrame sizing */
         .display-window {
             max-width: 1000px;
             width: 100%;
-            min-height: 65vh;
+            height: 75vh; /* Gives the container a strict structural height boundary */
             background: #111a36;
             border-radius: 0 0 12px 12px;
             border: 1px solid #2a3a5c;
@@ -112,10 +112,17 @@
         /* Hidden Class for Frame Transition */
         .hidden { display: none !important; }
         
+        /* Forces the dynamic inner frame container to absorb full parental height */
+        .frame-wrapper {
+            width: 100%;
+            height: 100%;
+        }
+        
         iframe {
             width: 100%;
-            height: 75vh;
+            height: 100%;
             border: none;
+            display: block;
         }
     </style>
 </head>
@@ -149,7 +156,7 @@
         </div>
 
         <!-- STEP 2: The Framed Live Room (Hidden until agreement) -->
-        <div id="meetingFrame" class="hidden" style="width: 100%; height: 100%;">
+        <div id="meetingFrame" class="hidden frame-wrapper">
             <!-- Script placeholder will inject iframe here securely upon click -->
         </div>
 
@@ -160,10 +167,11 @@
             // Hide the rules section completely
             document.getElementById('rulesGate').className = 'hidden';
             
-            // Build and inject the secure VDO iframe string dynamically
+            // Uncover the frame container
             var frameContainer = document.getElementById('meetingFrame');
-            frameContainer.className = ''; // Remove the hidden style
+            frameContainer.className = 'frame-wrapper'; 
             
+            // Inject the configured VDO.Ninja meeting layout engine 
             frameContainer.innerHTML = '<iframe src="https://vdo.ninja/?room=FishersOfMen24HRS&pw=0&conference&autorun&mute&videomute&clean&transparent" allow="camera; microphone; fullscreen; display-capture; autoplay"></iframe>';
         }
     </script>
