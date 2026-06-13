@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishers Of Men Prayer Network</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0b132b;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 15px;
+            overflow-x: hidden;
+        }
+        .header-container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            background: #1c2541;
+            padding: 25px 20px;
+            border-radius: 12px 12px 0 0;
+            border: 1px solid #2a3a5c;
+            border-bottom: none;
+        }
+        .logo-container {
+            width: 100%;
+            max-width: 240px;
+            margin: 0 auto 15px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .logo-container img { width: 100%; height: auto; display: block; object-fit: contain; }
+        .divider { height: 2px; width: 50px; background-color: #5bc0be; margin: 15px auto; }
+        
+        /* The Dynamic Content Window */
+        .display-window {
+            max-width: 1000px;
+            width: 100%;
+            min-height: 65vh;
+            background: #111a36;
+            border-radius: 0 0 12px 12px;
+            border: 1px solid #2a3a5c;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Rules Gate Layout */
+        .rules-gate {
+            max-width: 550px;
+            width: 100%;
+            padding: 40px 30px;
+            text-align: left;
+        }
+        .rules-gate h2 {
+            font-size: 1.3rem;
+            color: #5bc0be;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+        .rules-list {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+        .rules-list li {
+            font-size: 1.05rem;
+            color: #c5d3e8;
+            margin-bottom: 18px;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+        }
+        .rules-list li::before {
+            content: "•";
+            color: #5bc0be;
+            font-weight: bold;
+            font-size: 1.3rem;
+            margin-right: 12px;
+            line-height: 1;
+        }
+        .agree-btn {
+            display: block;
+            width: 100%;
+            padding: 18px 20px;
+            background-color: #5bc0be;
+            color: #0b132b;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 20px rgba(91, 192, 190, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .agree-btn:hover { background-color: #6fffe9; }
+        .agree-btn:active { transform: scale(0.99); }
+
+        /* Hidden Class for Frame Transition */
+        .hidden { display: none !important; }
+        
+        iframe {
+            width: 100%;
+            height: 75vh;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Professional Top Branding Bar -->
+    <div class="header-container">
+        <div class="logo-container">
+            <img src="logo.png" alt="Fishers Of Men Prayer Network Logo">
+        </div>
+    </div>
+
+    <!-- The Interactive Display Window -->
+    <div class="display-window">
+        
+        <!-- STEP 1: The Expectations Gate -->
+        <div id="rulesGate" class="rules-gate">
+            <h2>Community Expectations</h2>
+            <div class="divider"></div>
+            
+            <ul class="rules-list">
+                <li>Respect one another at all times within the prayer space.</li>
+                <li>Keep your microphone and camera turned off upon entry unless explicitly instructed otherwise by the leader.</li>
+                <li>Maintain a quiet, distraction-free environment while your audio line is active.</li>
+                <li>This platform is dedicated strictly to prayer, intercession, and fellowship.</li>
+            </ul>
+
+            <button class="agree-btn" onclick="enterAltar()">
+                🙏 I Agree & Enter Altar
+            </button>
+        </div>
+
+        <!-- STEP 2: The Framed Live Room (Hidden until agreement) -->
+        <div id="meetingFrame" class="hidden" style="width: 100%; height: 100%;">
+            <!-- Script placeholder will inject iframe here securely upon click -->
+        </div>
+
+    </div>
+
+    <script>
+        function enterAltar() {
+            // Hide the rules section completely
+            document.getElementById('rulesGate').className = 'hidden';
+            
+            // Build and inject the secure VDO iframe string dynamically
+            var frameContainer = document.getElementById('meetingFrame');
+            frameContainer.className = ''; // Remove the hidden style
+            
+            frameContainer.innerHTML = '<iframe src="https://vdo.ninja/?room=FishersOfMen24HRS&pw=0&conference&autorun&mute&videomute&clean&transparent" allow="camera; microphone; fullscreen; display-capture; autoplay"></iframe>';
+        }
+    </script>
+
+</body>
+</html>
